@@ -60,5 +60,6 @@ export const GlobalStyle = createGlobalStyle`
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overflow: hidden;
     }
 `;

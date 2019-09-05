@@ -8,6 +8,7 @@ import { Drawer, DrawerBackdrop, DrawerPaper } from './components/Drawer';
 import Wrapper from './components/Wrapper';
 import { Navbar, NavbarMenu, NavbarBoard, NavbarTopic } from './components/Navbar';
 import Board from './components/Board';
+import { Topics, Topic } from './components/Topics';
 import theme from './theme';
 import './App.css';
 
@@ -29,11 +30,15 @@ function App() {
                             <FontAwesomeIcon icon={faBars} />&nbsp;
                             <FontAwesomeIcon icon={faSmileWink} />
                         </NavbarMenu>
-                        <NavbarBoard>Board</NavbarBoard>
-                        <NavbarTopic>Topic</NavbarTopic>
+                        <NavbarBoard>Board Name</NavbarBoard>
+                        <NavbarTopic>Topic Name</NavbarTopic>
                     </Navbar>
                     <Board>
-                        <div>Board</div>
+                        <Topics>
+                            {[...Array(10)].map((x, i) =>
+                                <Topic key={i}>Topic {i+1}</Topic>
+                            )}
+                        </Topics>
                         <div>Topic</div>
                     </Board>
                 </Wrapper>
