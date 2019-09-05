@@ -1,4 +1,7 @@
 export default {
     backgroundColor: '#FFFFFF',
-    primaryColor: '#000000',
+    primaryColor: '#212529',
+
+    navbarBackgroundColor: '#0a8F6F',
+    navbarColor: '#FFFFFF',
 }

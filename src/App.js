@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
+import Wrapper from './components/Wrapper';
+import { Navbar, NavbarMenu, NavbarBoard, NavbarTopic } from './components/Navbar';
+import Board from './components/Board';
 import theme from './theme';
 import './App.css';
 
 function App() {
-    const [themeName, setThemeName] = useState('snow');
-
-    function handleChangeThemeName() {
-        if (themeName === 'snow') {
-            setThemeName('dark');
-        }else{
-            setThemeName('snow');
-        }
-    }
-
     return (
-        <ThemeProvider theme={theme[themeName]}>
+        <ThemeProvider theme={theme['snow']}>
             <div id="app">
                 <ResetStyle />
                 <GlobalStyle />
-
-                <div>It is worked!</div>
-
-                <button onClick={() => handleChangeThemeName()}>Change Theme</button>
+                <Wrapper>
+                    <Navbar>
+                        <NavbarMenu>
+                            <FontAwesomeIcon icon={faBars} />&nbsp;
+                            <FontAwesomeIcon icon={faSmileWink} />
+                        </NavbarMenu>
+                        <NavbarBoard>Board</NavbarBoard>
+                        <NavbarTopic>Topic</NavbarTopic>
+                    </Navbar>
+                    <Board>
+                        <div>Board</div>
+                        <div>Topic</div>
+                    </Board>
+                </Wrapper>
             </div>
         </ThemeProvider>
     );
