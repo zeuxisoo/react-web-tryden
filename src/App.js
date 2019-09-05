@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
@@ -14,8 +14,18 @@ import theme from './theme';
 import './App.css';
 
 function App() {
+    const [themeName, setThemeName] = useState('snow');
+
+    function changeThemeName() {
+        if (themeName === 'snow') {
+            setThemeName('dark');
+        }else{
+            setThemeName('snow');
+        }
+    }
+
     return (
-        <ThemeProvider theme={theme['snow']}>
+        <ThemeProvider theme={theme[themeName]}>
             <div id="app">
                 <ResetStyle />
                 <GlobalStyle />
@@ -29,7 +39,7 @@ function App() {
                     <Navbar>
                         <NavbarMenu>
                             <FontAwesomeIcon icon={faBars} />&nbsp;
-                            <FontAwesomeIcon icon={faSmileWink} />
+                            <FontAwesomeIcon icon={faSmileWink} onClick={() => changeThemeName()} />
                         </NavbarMenu>
                         <NavbarBoard>Board Name</NavbarBoard>
                         <NavbarTopic>Topic Name</NavbarTopic>
