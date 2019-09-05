@@ -9,6 +9,7 @@ import Wrapper from './components/Wrapper';
 import { Navbar, NavbarMenu, NavbarBoard, NavbarTopic } from './components/Navbar';
 import Board from './components/Board';
 import { Topics, Topic } from './components/Topics';
+import { Threads, Thread } from './components/Threads';
 import theme from './theme';
 import './App.css';
 
@@ -39,7 +40,11 @@ function App() {
                                 <Topic key={i}>Topic {i+1}</Topic>
                             )}
                         </Topics>
-                        <div>Topic</div>
+                        <Threads>
+                            {[...Array(10)].map((x, i) =>
+                                <Thread key={i}>Thread {i+1}</Thread>
+                            )}
+                        </Threads>
                     </Board>
                 </Wrapper>
             </div>

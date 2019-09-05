@@ -6,6 +6,7 @@ export const Topics = styled.div`
     grid-template-rows: 100px;
     grid-gap: 2px;
     background-color: ${props => props.theme.topicsBackgroundColor};
+    border-right: 1px solid ${props => props.theme.topicsBackgroundColor};
     overflow-y: scroll;
 `;
 
