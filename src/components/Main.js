@@ -13,7 +13,7 @@ const MainContainer = styled.div`
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: [Navbar] auto [Board] 1fr;
 `;
 
 export default Main;

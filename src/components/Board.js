@@ -15,7 +15,7 @@ function Board() {
 
 const BoardContainer = styled.div`
     display: grid;
-    grid-template-columns: 25% 1fr;
+    grid-template-columns: [TopicList] 25% [ThreadList] 1fr;
     grid-template-rows: 1fr;
     height: 100vh;
 `;
