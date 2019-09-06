@@ -1,15 +1,15 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const Threads = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px;
-    grid-gap: 10px;
-    background-color: ${props => props.theme.threadsBackgroundColor};
-    overflow-y: scroll;
-`;
+function Thread(props) {
+    return (
+        <ThreadContainer>
+            {props.children}
+        </ThreadContainer>
+    );
+}
 
-export const Thread = styled.div`
+const ThreadContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -19,3 +19,5 @@ export const Thread = styled.div`
     color: ${props => props.theme.threadColor};
     background-color: ${props => props.theme.threadBackgroundColor};
 `;
+
+export default Thread;
