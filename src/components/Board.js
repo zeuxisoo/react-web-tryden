@@ -1,17 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Topics, Topic } from './Topics';
+import TopicList from './TopicList';
 import { Threads, Thread } from './Threads';
 
 function Board() {
     return (
         <BoardContainer>
-            <Topics>
-                {[...Array(10)].map((x, i) =>
-                    <Topic key={i}>Topic {i+1}</Topic>
-                )}
-            </Topics>
+            <TopicList />
             <Threads>
                 {[...Array(10)].map((x, i) =>
                     <Thread key={i}>Thread {i+1}</Thread>
