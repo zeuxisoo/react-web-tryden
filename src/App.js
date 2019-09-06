@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
 import { Drawer, DrawerBackdrop, DrawerPaper } from './components/Drawer';
 import Wrapper from './components/Wrapper';
-import { Navbar, NavbarMenu, NavbarBoard, NavbarTopic } from './components/Navbar';
+import Navbar from './components/Navbar';
 import Board from './components/Board';
 import { Topics, Topic } from './components/Topics';
 import { Threads, Thread } from './components/Threads';
@@ -36,14 +34,7 @@ function App() {
                     </DrawerPaper>
                 </Drawer>
                 <Wrapper>
-                    <Navbar>
-                        <NavbarMenu>
-                            <FontAwesomeIcon icon={faBars} />&nbsp;
-                            <FontAwesomeIcon icon={faSmileWink} onClick={() => changeThemeName()} />
-                        </NavbarMenu>
-                        <NavbarBoard>Board Name</NavbarBoard>
-                        <NavbarTopic>Topic Name</NavbarTopic>
-                    </Navbar>
+                    <Navbar />
                     <Board>
                         <Topics>
                             {[...Array(10)].map((x, i) =>
