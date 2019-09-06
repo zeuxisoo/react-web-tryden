@@ -1,6 +1,18 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const Drawer = styled.div`
+function Drawer() {
+    return (
+        <DrawerContainer>
+            <DrawerBackdrop />
+            <DrawerPaper>
+                Hello World
+            </DrawerPaper>
+        </DrawerContainer>
+    )
+}
+
+const DrawerContainer = styled.div`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -9,7 +21,7 @@ export const Drawer = styled.div`
     visibility: hidden;
 `;
 
-export const DrawerBackdrop = styled.div`
+const DrawerBackdrop = styled.div`
     position: fixed;
     top: 0px;
     left: 0px;
@@ -21,7 +33,7 @@ export const DrawerBackdrop = styled.div`
     background-color: ${props => props.theme.drawerBackdropColor};
 `;
 
-export const DrawerPaper = styled.div`
+const DrawerPaper = styled.div`
     position: fixed;
     left: 0;
     right: auto;
@@ -31,3 +43,5 @@ export const DrawerPaper = styled.div`
     color: ${props => props.theme.drawerPaperColor};
     background-color: ${props => props.theme.drawerPaperBackgroundColor};
 `;
+
+export default Drawer;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
-import { Drawer, DrawerBackdrop, DrawerPaper } from './components/Drawer';
+import Drawer from './components/Drawer';
 import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Board from './components/Board';
@@ -26,12 +26,7 @@ function App() {
             <div id="app">
                 <ResetStyle />
                 <GlobalStyle />
-                <Drawer>
-                    <DrawerBackdrop />
-                    <DrawerPaper>
-                        Hello World
-                    </DrawerPaper>
-                </Drawer>
+                <Drawer />
                 <Wrapper>
                     <Navbar />
                     <Board />
