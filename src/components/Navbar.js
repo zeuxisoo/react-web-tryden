@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
+import MainContext from '../hook/contexts/main';
+import types from '../hook/types';
+
 function Navbar() {
+    const [mainState, dispatch] = useContext(MainContext);
+
+    function toggleTheme() {
+        dispatch({
+            type : types.SET_THEME,
+            theme: mainState.theme === 'snow' ? 'dark' : 'snow',
+        });
+    }
+
     return (
         <NavbarContainer>
             <NavbarMenu>
                 <FontAwesomeIcon icon={faBars} />&nbsp;
-                <FontAwesomeIcon icon={faSmileWink} />
+                <FontAwesomeIcon icon={faSmileWink} onClick={toggleTheme} />
             </NavbarMenu>
             <NavbarBoard>Board Name</NavbarBoard>
             <NavbarTopic>Topic Name</NavbarTopic>
