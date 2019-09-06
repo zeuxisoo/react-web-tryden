@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
 import Drawer from './components/Drawer';
-import Wrapper from './components/Wrapper';
+import Main from './components/Main';
 import Navbar from './components/Navbar';
 import Board from './components/Board';
 
@@ -27,10 +27,10 @@ function App() {
                 <ResetStyle />
                 <GlobalStyle />
                 <Drawer />
-                <Wrapper>
+                <Main>
                     <Navbar />
                     <Board />
-                </Wrapper>
+                </Main>
             </div>
         </ThemeProvider>
     );
