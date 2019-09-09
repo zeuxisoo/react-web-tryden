@@ -9,6 +9,12 @@ import types from '../hook/types';
 function Navbar() {
     const [mainState, dispatch] = useContext(MainContext);
 
+    function handleDrawerOpen() {
+        dispatch({
+            type: types.SET_DRAWER_OPEN
+        });
+    }
+
     function toggleTheme() {
         dispatch({
             type : types.SET_THEME,
@@ -19,7 +25,7 @@ function Navbar() {
     return (
         <NavbarContainer>
             <NavbarMenu>
-                <FontAwesomeIcon icon={faBars} />&nbsp;
+                <FontAwesomeIcon icon={faBars} onClick={handleDrawerOpen} />&nbsp;
                 <FontAwesomeIcon icon={faSmileWink} onClick={toggleTheme} />
             </NavbarMenu>
             <NavbarBoard>Board Name</NavbarBoard>

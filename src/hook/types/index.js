@@ -1,5 +1,11 @@
 const SET_THEME = "SET_THEME";
 
+const SET_DRAWER_OPEN = "SET_DRAWER_OPEN";
+const SET_DRAWER_CLOSE = "SET_DRAWER_CLOSE";
+
 export default {
-    SET_THEME
+    SET_THEME,
+
+    SET_DRAWER_OPEN,
+    SET_DRAWER_CLOSE,
 };
