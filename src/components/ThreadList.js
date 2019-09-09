@@ -16,7 +16,6 @@ function ThreadList() {
 const ThreadContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px;
     grid-gap: 10px;
     background-color: ${props => props.theme.threadsBackgroundColor};
     overflow-y: scroll;
