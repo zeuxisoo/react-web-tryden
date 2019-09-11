@@ -11,7 +11,8 @@ function Navbar() {
 
     function handleDrawerOpen() {
         dispatch({
-            type: types.SET_DRAWER_OPEN
+            type  : types.SET_DRAWER_STATUS,
+            status: 'open',
         });
     }
 

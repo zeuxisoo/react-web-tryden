@@ -2,7 +2,7 @@ import types from '../types';
 
 const mainDefaultState = {
     theme       : 'snow',
-    isDrawerOpen: false,
+    drawerStatus: 'close',
 };
 
 const mainReducer = (state, action) => {
@@ -12,15 +12,10 @@ const mainReducer = (state, action) => {
                 ...state,
                 theme: action.theme
             };
-        case types.SET_DRAWER_OPEN:
+        case types.SET_DRAWER_STATUS:
             return {
                 ...state,
-                isDrawerOpen: true,
-            };
-        case types.SET_DRAWER_CLOSE:
-            return {
-                ...state,
-                isDrawerOpen: false,
+                drawerStatus: action.status,
             };
         default:
             return state;
