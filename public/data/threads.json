@@ -1,0 +1,13 @@
+[
+    { "id": 1, "board_id": 1, "topic_id": 1, "title": "Thread 1", "content": "Board: 1, Topic: 1, Thread A" },
+    { "id": 2, "board_id": 1, "topic_id": 1, "title": "Thread 2", "content": "Board: 1, Topic: 1, Thread B" },
+    { "id": 3, "board_id": 1, "topic_id": 1, "title": "Thread 3", "content": "Board: 1, Topic: 1, Thread C" },
+
+    { "id": 4, "board_id": 2, "topic_id": 2, "title": "Thread 4", "content": "Board: 2, Topic: 2, Thread D" },
+    { "id": 5, "board_id": 2, "topic_id": 2, "title": "Thread 5", "content": "Board: 2, Topic: 2, Thread E" },
+
+    { "id": 6, "board_id": 3, "topic_id": 3, "title": "Thread 6", "content": "Board: 3, Topic: 3, Thread F" },
+    { "id": 7, "board_id": 3, "topic_id": 3, "title": "Thread 7", "content": "Board: 3, Topic: 3, Thread G" },
+    { "id": 8, "board_id": 3, "topic_id": 3, "title": "Thread 8", "content": "Board: 3, Topic: 3, Thread H" },
+    { "id": 9, "board_id": 3, "topic_id": 3, "title": "Thread 9", "content": "Board: 3, Topic: 3, Thread I" }
+]

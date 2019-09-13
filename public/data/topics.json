@@ -1,0 +1,12 @@
+[
+    { "id": 1, "board_id": 1, "title": "Topic 1-1, Hello A" },
+    { "id": 2, "board_id": 1, "title": "Topic 2-1, Hello B" },
+    { "id": 3, "board_id": 1, "title": "Topic 3-1, Hello C" },
+
+    { "id": 4, "board_id": 2, "title": "Topic 3-2, Hello D" },
+    { "id": 5, "board_id": 2, "title": "Topic 4-2, Hello E" },
+    { "id": 6, "board_id": 2, "title": "Topic 5-2, Hello F" },
+
+    { "id": 7, "board_id": 3, "title": "Topic 6-3, Hello G" },
+    { "id": 8, "board_id": 3, "title": "Topic 7-3, Hello H" }
+]
