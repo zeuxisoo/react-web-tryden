@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import MainContext from '../hook/contexts/main';
 import types from '../hook/types';
+import Api from '../api';
 
 function Drawer() {
     const duration = 300;
+    const [boards, setBoards] = useState([]);
     const [mainState, dispatch] = useContext(MainContext);
 
+    // Handler
     function handleDrawerClose() {
         dispatch({
             type  : types.SET_DRAWER_STATUS,
@@ -22,11 +27,28 @@ function Drawer() {
         }, duration);
     }
 
+    // Hook
+    useEffect(() => {
+        Api.get("boards.json").then(response => {
+            setBoards(response.data);
+        });
+    }, []);
+
     return (
         <DrawerContainer status={mainState.drawerStatus} duration={duration}>
             <DrawerBackdrop status={mainState.drawerStatus} duration={duration} onClick={handleDrawerClose} />
             <DrawerPaper status={mainState.drawerStatus} duration={duration}>
-                Hello World
+                <DrawerPaperIcons>
+                    <FontAwesomeIcon icon={faSmileWink} size="lg" />
+                    <FontAwesomeIcon icon={faUser} size="lg" />
+                </DrawerPaperIcons>
+                <DrawerPaperBoardList>
+                    {
+                        boards.map((board, i)  => (
+                            <div key={i}>{board.name}</div>
+                        ))
+                    }
+                </DrawerPaperBoardList>
             </DrawerPaper>
         </DrawerContainer>
     )
@@ -61,6 +83,9 @@ const DrawerBackdrop = styled.div`
 `;
 
 const DrawerPaper = styled.div`
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
     position: fixed;
     right: auto;
     z-index: 1200;
@@ -80,6 +105,27 @@ const DrawerPaper = styled.div`
     // Animation (isClosing): slide right to left from 0px to -300px
     left: ${props => props.status === 'closing' ? '-300px' : ''};
     transform: ${props => props.status === 'closing' ? 'translate(0px, 0px)' : ''};
+`;
+
+const DrawerPaperIcons = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 30px);
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    padding-top: 10px;
+    background-color: ${props => props.theme.drawerPaperIconsBackgroundColor}
+`;
+
+const DrawerPaperBoardList = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, 30px);
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    padding-top: 10px;
 `;
 
 export default Drawer;

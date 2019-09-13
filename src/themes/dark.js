@@ -8,6 +8,7 @@ export default {
     drawerBackdropColor: 'rgba(0, 0, 0, 0.5)',
     drawerPaperBackgroundColor: '#5283c4',
     drawerPaperColor: '#E3EBF4',
+    drawerPaperIconsBackgroundColor: '#1f5082',
 
     topicsBackgroundColor: '#293544',
     topicBackgroundColor: '#0b1016',
