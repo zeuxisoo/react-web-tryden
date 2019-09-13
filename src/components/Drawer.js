@@ -6,8 +6,6 @@ import types from '../hook/types';
 
 function Drawer() {
     const duration = 300;
-
-    /* eslint-disable no-unused-vars */
     const [mainState, dispatch] = useContext(MainContext);
 
     function handleDrawerClose() {
