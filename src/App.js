@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
 import Drawer from './components/Drawer';
@@ -16,19 +17,21 @@ function App() {
     const mainContextReducer = useReducer(mainReducer, mainDefaultState);
 
     return (
-        <MainContext.Provider value={mainContextReducer}>
-            <Theme>
-                <div id="app">
-                    <ResetStyle />
-                    <GlobalStyle />
-                    <Drawer />
-                    <Main>
-                        <Navbar />
-                        <Board />
-                    </Main>
-                </div>
-            </Theme>
-        </MainContext.Provider>
+        <BrowserRouter>
+            <MainContext.Provider value={mainContextReducer}>
+                <Theme>
+                    <div id="app">
+                        <ResetStyle />
+                        <GlobalStyle />
+                        <Drawer />
+                        <Main>
+                            <Navbar />
+                            <Board />
+                        </Main>
+                    </div>
+                </Theme>
+            </MainContext.Provider>
+        </BrowserRouter>
     );
 }
 
