@@ -8,8 +8,7 @@ import Navbar from './components/Navbar';
 import Board from './components/Board';
 import Theme from './components/Theme';
 
-import MainContext from './hook/contexts/main';
-import { mainDefaultState, mainReducer } from './hook/reducers/main';
+import MainContext, { mainReducer, mainDefaultState } from './hook/main';
 
 import './App.css';
 

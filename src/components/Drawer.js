@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import MainContext from '../hook/contexts/main';
-import types from '../hook/types';
+import MainContext, { mainTypes } from '../hook/main';
 import Api from '../api';
 
 function Drawer() {
@@ -15,13 +14,13 @@ function Drawer() {
     // Handler
     function handleDrawerClose() {
         dispatch({
-            type  : types.SET_DRAWER_STATUS,
+            type  : mainTypes.SET_DRAWER_STATUS,
             status: 'closing',
         });
 
         setTimeout(() => {
             dispatch({
-                type  : types.SET_DRAWER_STATUS,
+                type  : mainTypes.SET_DRAWER_STATUS,
                 status: 'close',
             });
         }, duration);

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import MainContext from '../hook/contexts/main';
+import MainContext from '../hook/main';
 import themes from '../themes';
 
 function Theme(props) {

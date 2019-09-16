@@ -3,22 +3,21 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
-import MainContext from '../hook/contexts/main';
-import types from '../hook/types';
+import MainContext, { mainTypes } from '../hook/main';
 
 function Navbar() {
     const [mainState, dispatch] = useContext(MainContext);
 
     function handleDrawerOpen() {
         dispatch({
-            type  : types.SET_DRAWER_STATUS,
+            type  : mainTypes.SET_DRAWER_STATUS,
             status: 'open',
         });
     }
 
     function toggleTheme() {
         dispatch({
-            type : types.SET_THEME,
+            type : mainTypes.SET_THEME,
             theme: mainState.theme === 'snow' ? 'dark' : 'snow',
         });
     }
