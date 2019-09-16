@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { ResetStyle, GlobalStyle } from './components/Style';
@@ -8,16 +8,16 @@ import Navbar from './components/Navbar';
 import Board from './components/Board';
 import Theme from './components/Theme';
 
-import MainContext, { mainReducer, mainDefaultState } from './hook/main';
+import MainContext, { useMain, defaultState } from './hook/main';
 
 import './App.css';
 
 function App() {
-    const mainContextReducer = useReducer(mainReducer, mainDefaultState);
+    const main = useMain(defaultState);
 
     return (
         <BrowserRouter>
-            <MainContext.Provider value={mainContextReducer}>
+            <MainContext.Provider value={main}>
                 <Theme>
                     <div id="app">
                         <ResetStyle />

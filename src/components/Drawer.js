@@ -3,26 +3,20 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import MainContext, { mainTypes } from '../hook/main';
+import mainContext from '../hook/main';
 import Api from '../api';
 
 function Drawer() {
     const duration = 300;
     const [boards, setBoards] = useState([]);
-    const [mainState, dispatch] = useContext(MainContext);
+    const { state, setDrawerStatus } = useContext(mainContext);
 
     // Handler
     function handleDrawerClose() {
-        dispatch({
-            type  : mainTypes.SET_DRAWER_STATUS,
-            status: 'closing',
-        });
+        setDrawerStatus('closing');
 
         setTimeout(() => {
-            dispatch({
-                type  : mainTypes.SET_DRAWER_STATUS,
-                status: 'close',
-            });
+            setDrawerStatus('close');
         }, duration);
     }
 
@@ -34,9 +28,9 @@ function Drawer() {
     }, []);
 
     return (
-        <DrawerContainer status={mainState.drawerStatus} duration={duration}>
-            <DrawerBackdrop status={mainState.drawerStatus} duration={duration} onClick={handleDrawerClose} />
-            <DrawerPaper status={mainState.drawerStatus} duration={duration}>
+        <DrawerContainer status={state.drawerStatus} duration={duration}>
+            <DrawerBackdrop status={state.drawerStatus} duration={duration} onClick={handleDrawerClose} />
+            <DrawerPaper status={state.drawerStatus} duration={duration}>
                 <DrawerPaperIcons>
                     <FontAwesomeIcon icon={faSmileWink} size="lg" />
                     <FontAwesomeIcon icon={faUser} size="lg" />

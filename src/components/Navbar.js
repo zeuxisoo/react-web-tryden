@@ -3,23 +3,13 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
-import MainContext, { mainTypes } from '../hook/main';
+import mainContext from '../hook/main';
 
 function Navbar() {
-    const [mainState, dispatch] = useContext(MainContext);
+    const { setDrawerStatus, toggleTheme } = useContext(mainContext);
 
     function handleDrawerOpen() {
-        dispatch({
-            type  : mainTypes.SET_DRAWER_STATUS,
-            status: 'open',
-        });
-    }
-
-    function toggleTheme() {
-        dispatch({
-            type : mainTypes.SET_THEME,
-            theme: mainState.theme === 'snow' ? 'dark' : 'snow',
-        });
+        setDrawerStatus('open');
     }
 
     return (
