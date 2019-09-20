@@ -1,15 +1,55 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import DrawerContext from '../hook/drawer';
 import Api from '../api';
 
-function Drawer() {
+// Drawer context
+const DrawerContext = createContext();
+
+// Drawer default initial state
+const defaultState = {
+    drawerStatus: 'close',
+};
+
+// Drawer reducer
+const types = {
+    SET_DRAWER_STATUS: "SET_DRAWER_STATUS",
+};
+
+const reducer = (state, action) => {
+    switch(action.type) {
+        case types.SET_DRAWER_STATUS:
+            return {
+                ...state,
+                drawerStatus: action.status,
+            };
+        default:
+            return state;
+    }
+};
+
+// Drawer reducer hook
+function useDrawer(initialState) {
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const setDrawerStatus = status => {
+        dispatch({
+            type  : types.SET_DRAWER_STATUS,
+            status: status,
+        });
+    };
+
+    return { state, setDrawerStatus };
+}
+
+// Drawer component
+function Drawer(props) {
     const duration = 300;
     const [boards, setBoards] = useState([]);
-    const { state, setDrawerStatus } = useContext(DrawerContext);
+    const drawerHook = useDrawer(defaultState);
+    const { state, setDrawerStatus } = drawerHook;
 
     // Handler
     function handleDrawerClose() {
@@ -28,22 +68,27 @@ function Drawer() {
     }, []);
 
     return (
-        <DrawerContainer status={state.drawerStatus} duration={duration}>
-            <DrawerBackdrop status={state.drawerStatus} duration={duration} onClick={handleDrawerClose} />
-            <DrawerPaper status={state.drawerStatus} duration={duration}>
-                <DrawerPaperIcons>
-                    <FontAwesomeIcon icon={faSmileWink} size="lg" />
-                    <FontAwesomeIcon icon={faUser} size="lg" />
-                </DrawerPaperIcons>
-                <DrawerPaperBoardList>
-                    {
-                        boards.map((board, i)  => (
-                            <div key={i}>{board.name}</div>
-                        ))
-                    }
-                </DrawerPaperBoardList>
-            </DrawerPaper>
-        </DrawerContainer>
+        <>
+            <DrawerContainer status={state.drawerStatus} duration={duration}>
+                <DrawerBackdrop status={state.drawerStatus} duration={duration} onClick={handleDrawerClose} />
+                <DrawerPaper status={state.drawerStatus} duration={duration}>
+                    <DrawerPaperIcons>
+                        <FontAwesomeIcon icon={faSmileWink} size="lg" />
+                        <FontAwesomeIcon icon={faUser} size="lg" />
+                    </DrawerPaperIcons>
+                    <DrawerPaperBoardList>
+                        {
+                            boards.map((board, i)  => (
+                                <div key={i}>{board.name}</div>
+                            ))
+                        }
+                    </DrawerPaperBoardList>
+                </DrawerPaper>
+            </DrawerContainer>
+            <DrawerContext.Provider value={drawerHook}>
+                {props.children}
+            </DrawerContext.Provider>
+        </>
     )
 }
 
@@ -122,3 +167,6 @@ const DrawerPaperBoardList = styled.div`
 `;
 
 export default Drawer;
+export {
+    DrawerContext
+};

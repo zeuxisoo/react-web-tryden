@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
 import { ThemeContext } from './Theme';
-import DrawerContext from '../hook/drawer';
+import { DrawerContext } from './Drawer';
 
 function Navbar() {
     const { toggleTheme } = useContext(ThemeContext);
