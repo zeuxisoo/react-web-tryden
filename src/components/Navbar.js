@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSmileWink } from '@fortawesome/free-solid-svg-icons';
 
-import mainContext from '../hook/main';
+import ThemeContext from '../hook/theme';
+import DrawerContext from '../hook/drawer';
 
 function Navbar() {
-    const { setDrawerStatus, toggleTheme } = useContext(mainContext);
+    const { toggleTheme } = useContext(ThemeContext);
+    const { setDrawerStatus } = useContext(DrawerContext);
 
     function handleDrawerOpen() {
         setDrawerStatus('open');

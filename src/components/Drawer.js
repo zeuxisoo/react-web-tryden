@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import mainContext from '../hook/main';
+import DrawerContext from '../hook/drawer';
 import Api from '../api';
 
 function Drawer() {
     const duration = 300;
     const [boards, setBoards] = useState([]);
-    const { state, setDrawerStatus } = useContext(mainContext);
+    const { state, setDrawerStatus } = useContext(DrawerContext);
 
     // Handler
     function handleDrawerClose() {

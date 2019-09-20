@@ -2,23 +2,16 @@ import { createContext, useReducer } from 'react';
 
 const context = createContext();
 
-const defaultState = {
-    theme       : 'snow',
+const defaultDrawerState = {
     drawerStatus: 'close',
 };
 
 const types = {
-    SET_THEME        : "SET_THEME",
     SET_DRAWER_STATUS: "SET_DRAWER_STATUS",
 };
 
 const reducer = (state, action) => {
     switch(action.type) {
-        case types.SET_THEME:
-            return {
-                ...state,
-                theme: action.theme
-            };
         case types.SET_DRAWER_STATUS:
             return {
                 ...state,
@@ -29,7 +22,7 @@ const reducer = (state, action) => {
     }
 };
 
-function useMain(initialState) {
+function useDrawer(initialState) {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const setDrawerStatus = status => {
@@ -39,18 +32,11 @@ function useMain(initialState) {
         });
     };
 
-    const toggleTheme = () => {
-        dispatch({
-            type : types.SET_THEME,
-            theme: state.theme === 'snow' ? 'dark' : 'snow',
-        });
-    }
-
-    return { state, setDrawerStatus, toggleTheme };
+    return { state, setDrawerStatus };
 }
 
 export default context;
 export {
-    useMain,
-    defaultState
+    useDrawer,
+    defaultDrawerState
 };
