@@ -8,32 +8,28 @@ import Navbar from './components/Navbar';
 import Board from './components/Board';
 import Theme from './components/Theme';
 
-import ThemeContext, { useTheme, defaultThemeState } from './hook/theme';
 import DrawerContext, { useDrawer, defaultDrawerState } from './hook/drawer';
 
 import './App.css';
 
 function App() {
-    const theme  = useTheme(defaultThemeState);
     const drawer = useDrawer(defaultDrawerState);
 
     return (
         <BrowserRouter>
-            <ThemeContext.Provider value={theme}>
+            <Theme>
                 <DrawerContext.Provider value={drawer}>
-                    <Theme>
-                        <div id="app">
-                            <ResetStyle />
-                            <GlobalStyle />
-                            <Drawer />
-                            <Main>
-                                <Navbar />
-                                <Board />
-                            </Main>
-                        </div>
-                    </Theme>
+                    <div id="app">
+                        <ResetStyle />
+                        <GlobalStyle />
+                        <Drawer />
+                        <Main>
+                            <Navbar />
+                            <Board />
+                        </Main>
+                    </div>
                 </DrawerContext.Provider>
-            </ThemeContext.Provider>
+            </Theme>
         </BrowserRouter>
     );
 }
