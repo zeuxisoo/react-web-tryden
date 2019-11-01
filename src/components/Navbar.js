@@ -28,7 +28,7 @@ function Navbar() {
 
 const NavbarContainer = styled.div`
     display: grid;
-    grid-template-columns: [Menu] 5% [Board] 20% [Topic] 1fr;
+    grid-template-columns: [Menu] 8% [Board] 20% [Topic] 1fr;
     grid-template-rows: [Main] 1fr;
     background-color: ${props => props.theme.navbarBackgroundColor};
     color: ${props => props.theme.navbarColor};
