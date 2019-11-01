@@ -41,7 +41,17 @@ function useDrawer(initialState) {
         });
     };
 
-    return { state, setDrawerStatus };
+    const closeDrawer   = () => setDrawerStatus('close');
+    const closingDrawer = () => setDrawerStatus('closing');
+    const openDrawer    = () => setDrawerStatus('open');
+
+    return {
+        state,
+        setDrawerStatus,
+        closeDrawer,
+        closingDrawer,
+        openDrawer,
+    };
 }
 
 // Drawer component
@@ -49,14 +59,14 @@ function Drawer(props) {
     const duration = 300;
     const [boards, setBoards] = useState([]);
     const drawerHook = useDrawer(defaultState);
-    const { state, setDrawerStatus } = drawerHook;
+    const { state, closingDrawer, closeDrawer } = drawerHook;
 
     // Handler
     function handleDrawerClose() {
-        setDrawerStatus('closing');
+        closingDrawer();
 
         setTimeout(() => {
-            setDrawerStatus('close');
+            closeDrawer();
         }, duration);
     }
 

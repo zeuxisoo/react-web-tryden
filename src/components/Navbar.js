@@ -8,16 +8,12 @@ import { DrawerContext } from './Drawer';
 
 function Navbar() {
     const { toggleTheme } = useContext(ThemeContext);
-    const { setDrawerStatus } = useContext(DrawerContext);
-
-    function handleDrawerOpen() {
-        setDrawerStatus('open');
-    }
+    const { openDrawer } = useContext(DrawerContext);
 
     return (
         <NavbarContainer>
             <NavbarMenu>
-                <FontAwesomeIcon icon={faBars} onClick={handleDrawerOpen} />&nbsp;
+                <FontAwesomeIcon icon={faBars} onClick={openDrawer} />&nbsp;
                 <FontAwesomeIcon icon={faSmileWink} onClick={toggleTheme} />
             </NavbarMenu>
             <NavbarBoard>Board Name</NavbarBoard>
