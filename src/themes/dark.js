@@ -10,6 +10,9 @@ export default {
     drawerPaperColor: '#E3EBF4',
     drawerPaperIconsBackgroundColor: '#1f5082',
 
+    boardColor: '#293544',
+    boardHoverColor: '#0b1016',
+
     topicsBackgroundColor: '#293544',
     topicBackgroundColor: '#0b1016',
     topicColor: '#9bafc9',

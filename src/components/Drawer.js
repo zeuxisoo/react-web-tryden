@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -89,7 +90,9 @@ function Drawer(props) {
                     <DrawerPaperBoardList>
                         {
                             boards.map((board, i)  => (
-                                <div key={i}>{board.name}</div>
+                                <div key={i}>
+                                    <Link to={`/topic/${board.id}`}>{board.name}</Link>
+                                </div>
                             ))
                         }
                     </DrawerPaperBoardList>

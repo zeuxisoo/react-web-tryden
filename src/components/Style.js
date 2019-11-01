@@ -62,4 +62,14 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         overflow: hidden;
     }
+
+    a {
+        color: ${props => props.theme.boardColor};
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: ${props => props.theme.boardHoverColor};
+        }
+    }
 `;
