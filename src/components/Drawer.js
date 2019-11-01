@@ -91,7 +91,7 @@ function Drawer(props) {
                         {
                             boards.map((board, i)  => (
                                 <div key={i}>
-                                    <Link to={`/topic/${board.id}`}>{board.name}</Link>
+                                    <Link to={`/topic/${board.id}`} onClick={handleDrawerClose}>{board.name}</Link>
                                 </div>
                             ))
                         }
