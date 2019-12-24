@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+
+import Api from '../api';
 
 import Topic from './Topic';
 
 function TopicList() {
+    const [topics, setTopics] = useState([]);
     const { id } = useParams();
 
-    console.log(id);
+    const fetchTopic = useCallback(async () => {
+        const response = await Api.get("topics.json");
+        const topics   = response.data.filter(topic => topic.board_id === parseInt(id, 10));
+
+        setTopics(topics);
+    }, [id]);
+
+    useEffect(() => {
+        fetchTopic();
+    }, [fetchTopic]);
 
     return (
         <TopicListContainer>
-            {[...Array(10)].map((x, i) =>
-                <Topic key={i}>Topic {i+1}</Topic>
+            {topics.map((x, i) =>
+                <Topic key={x.id}>{x.title}</Topic>
             )}
         </TopicListContainer>
     );
