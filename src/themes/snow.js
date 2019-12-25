@@ -22,4 +22,6 @@ export default {
     threadsBackgroundColor: '#d0eae1',
     threadBackgroundColor: '#EDFCF7',
     threadColor: '#3A564D',
+    threadTitleColor: '#0C720C',
+    threadContentColor: '#41A529',
 }
