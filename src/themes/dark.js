@@ -16,6 +16,8 @@ export default {
     topicsBackgroundColor: '#293544',
     topicBackgroundColor: '#0b1016',
     topicColor: '#9bafc9',
+    topicLinkColor: '#9bafc9',
+    topicLinkHoverColor: '#5283c4',
 
     threadsBackgroundColor: '#293544',
     threadBackgroundColor: '#0b1016',

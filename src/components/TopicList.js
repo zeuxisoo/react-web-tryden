@@ -23,8 +23,8 @@ function TopicList() {
 
     return (
         <TopicListContainer>
-            {topics.map((x, i) =>
-                <Topic key={x.id}>{x.title}</Topic>
+            {topics.map((topic, i) =>
+                <Topic key={topic.id} topic={topic} />
             )}
         </TopicListContainer>
     );
