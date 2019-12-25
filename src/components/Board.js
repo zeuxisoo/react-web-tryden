@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Smile from './Smile';
 import TopicList from './TopicList';
-import ThreadList from './ThreadList';
 
 function Board() {
     /**
@@ -24,11 +22,6 @@ function Board() {
             <Switch>
                 <Redirect from='/' to='/topic/1' exact />
                 <Route path='/topic/:id' component={TopicList} />
-                <Route component={TopicList} />
-            </Switch>
-            <Switch>
-                <Route path="/thread/:id" component={ThreadList} />
-                <Route component={Smile} />
             </Switch>
         </BoardContainer>
     );
@@ -36,7 +29,7 @@ function Board() {
 
 const BoardContainer = styled.div`
     display: grid;
-    grid-template-columns: [TopicList] 28% [ThreadList] 1fr;
+    grid-template-columns: [TopicList] 1fr;
     grid-template-rows: 1fr;
     height: 100vh;
 `;

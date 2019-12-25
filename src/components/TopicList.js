@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Api from '../api';
 
 import Topic from './Topic';
+import ThreadList from './ThreadList';
+import Smile from './Smile';
 
 function TopicList() {
     const [topics, setTopics] = useState([]);
@@ -23,14 +25,29 @@ function TopicList() {
 
     return (
         <TopicListContainer>
-            {topics.map((topic, i) =>
-                <Topic key={topic.id} topic={topic} />
-            )}
+            <BrowserRouter>
+                <TopicsContainer>
+                    {topics.map((topic, i) =>
+                        <Topic key={topic.id} topic={topic} />
+                    )}
+                </TopicsContainer>
+                <Switch>
+                    <Route path="/thread/:id" component={ThreadList} />
+                    <Route component={Smile} />
+                </Switch>
+            </BrowserRouter>
         </TopicListContainer>
     );
 }
 
 const TopicListContainer = styled.div`
+    display: grid;
+    grid-template-columns: [Topics] 28% [Threads] 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+`;
+
+const TopicsContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2px;

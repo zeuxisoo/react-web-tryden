@@ -30,7 +30,7 @@ const TopicContainer = styled.div`
 const StyledLink = styled(Link)`
     color: ${props => props.theme.topicLinkColor};
 
-    &:hover {
+    &:hover, &:focus {
         color: ${props => props.theme.topicLinkHoverColor};
     }
 `;
